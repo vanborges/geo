@@ -1,19 +1,16 @@
 version: "3.8"  # optional since v1.27.0
 services:
-  postgresqls:
+  postgres:
     container_name: "postgresqlpostgis"
     image: "postgis/postgis:16-3.4-alpine"
     ports: 
       - "5433:5432"
-    volumes:
-       - db_persdata:/var/lib/postgrespers
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     networks:
       - default
-  
   pgAdmin4:
     container_name: pgAdmin4-interface
     image: dpage/pgadmin4
@@ -27,7 +24,6 @@ services:
     networks:
       network-banco:
         ipv4_address: 174.20.0.3
-
 networks:
   network-banco:
     driver: bridge

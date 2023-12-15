@@ -10,7 +10,8 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     networks:
-      - default
+      network-banco:
+        ipv4_address: 174.20.0.2
   pgAdmin4:
     container_name: pgAdmin4-interface
     image: dpage/pgadmin4
